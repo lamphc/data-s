@@ -1,0 +1,16 @@
+{
+  "name": "data-s",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "parcel build src/index.ts --out-dir dist",
+    "start": "parcel serve index.html -p 1256 --open"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^1.10.3",
+    "typescript": "^3.2.2"
+  }
+}
