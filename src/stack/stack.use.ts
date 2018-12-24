@@ -61,4 +61,61 @@ export default class StackUse {
 		}
 		return st
 	}
+
+	/**
+	 * 判断一个算术表达式中的括号是否匹配
+	 * @param exp
+	 */
+	isExpMath(exp: string): boolean {
+		let s: Stack = new Stack(),
+			l: Array<string> = ['(', '{', '['],
+			r: Array<string> = [')', '}', ']']
+		for (let i: number = 0; i < exp.length; i++) {
+			const st: string = exp[i]
+			if (l.includes(st)) {
+				s.push(st)
+			} else if (r.includes(st)) {
+				let top = s.pop()
+				if ((top == '(' && st == ')') || (top == '[' && st == ']') || (top == '{' && st == '}')) {
+					continue
+				} else {
+					return false
+				}
+			}
+		}
+		if (s.length() > 0) {
+			return false
+		}
+		return true
+	}
+
+	getLikeCandy(nl: string, cd: Stack): Stack {
+		const l: Stack = new Stack()
+		while (cd.length() > 0) {
+			let t = cd.pop()
+			if (t !== nl) l.push(t)
+		}
+		while (l.length() > 0) {
+			cd.push(l.pop())
+		}
+		return cd
+	}
+
+	static setCandy(): Stack {
+		const candy: Stack = new Stack()
+		candy.push('red')
+		candy.push('yellow')
+		candy.push('orange')
+		candy.push('yellow')
+		candy.push('blue')
+		candy.push('white')
+		candy.push('yellow')
+		candy.push('white')
+		candy.push('yellow')
+		candy.push('purple')
+		candy.push('pink')
+		return candy
+	}
 }
+const candy = StackUse.setCandy()
+export { candy }
