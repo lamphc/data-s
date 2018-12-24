@@ -89,6 +89,11 @@ export default class StackUse {
 		return true
 	}
 
+	/**
+	 * 佩兹糖果盒-不改变盒内其他糖果叠放顺序的基础上，将nl糖果移出
+	 * @param nl 移除糖果
+	 * @param cd 佩兹糖果盒
+	 */
 	getLikeCandy(nl: string, cd: Stack): Stack {
 		const l: Stack = new Stack()
 		while (cd.length() > 0) {
@@ -101,6 +106,9 @@ export default class StackUse {
 		return cd
 	}
 
+	/**
+	 * 佩兹糖果盒
+	 */
 	static setCandy(): Stack {
 		const candy: Stack = new Stack()
 		candy.push('red')
