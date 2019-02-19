@@ -12,5 +12,8 @@
   "devDependencies": {
     "parcel": "^1.10.3",
     "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "rxjs": "^6.3.3"
   }
 }
